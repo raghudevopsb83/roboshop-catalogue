@@ -1,8 +1,8 @@
 FROM            redhat/ubi9
 COPY            mongo.repo /etc/yum.repos.d
 RUN             dnf install mongodb-mongosh git -y
-RUN             mkdir /app
-WORKDIR         /app
-COPY            *.js run.sh /app/
+RUN             mkdir /tmp
+WORKDIR         /tmp
+COPY            *.js run.sh /tmp/
 ENTRYPOINT      ["bash", "run.sh"]
 
